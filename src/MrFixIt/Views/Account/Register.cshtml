@@ -1,5 +1,6 @@
 ﻿@{
-    ViewBag.Title = "Register";
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @using MrFixIt.ViewModels
@@ -7,7 +8,7 @@
 @model RegisterViewModel
 
 <h2>Register a new worker</h2>
-@*Unable to register new worker, unknown error*@
+@*Register new worker, no known bugs*@
 <hr />
 @using (Html.BeginForm("Register", "Account", FormMethod.Post))
 {

@@ -1,4 +1,8 @@
-﻿@*
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*
     View displays all unclaimed jobs and jobs claimed by specific worker, known bug
 *@
 @{
@@ -16,7 +20,11 @@
         </ul>
         @if (Job.Worker == null)
         {
-        <li class="btn">This job is unclaimed. @Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })</li>
+        <li>This job is unclaimed. 
+        @Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })
+            
+            <div id="result1"></div>
+        </li>
         }
         else
         {

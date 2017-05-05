@@ -123,29 +123,7 @@ namespace MrFixIt.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("MrFixIt.Models.Job", b =>
-                {
-                    b.Property<int>("JobId")
-                        .ValueGeneratedOnAdd();
-
-                    b.Property<bool>("Completed");
-
-                    b.Property<string>("Description");
-
-                    b.Property<bool>("Pending");
-
-                    b.Property<string>("Title");
-
-                    b.Property<int?>("WorkerId");
-
-                    b.HasKey("JobId");
-
-                    b.HasIndex("WorkerId");
-
-                    b.ToTable("Jobs");
-                });
-
-            modelBuilder.Entity("MrFixIt.Models.User", b =>
+            modelBuilder.Entity("MrFixIt.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id");
 
@@ -194,12 +172,34 @@ namespace MrFixIt.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("MrFixIt.Models.Job", b =>
+                {
+                    b.Property<int>("JobId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Completed");
+
+                    b.Property<string>("Description");
+
+                    b.Property<bool>("Pending");
+
+                    b.Property<string>("Title");
+
+                    b.Property<int?>("WorkerId");
+
+                    b.HasKey("JobId");
+
+                    b.HasIndex("WorkerId");
+
+                    b.ToTable("Jobs");
+                });
+
             modelBuilder.Entity("MrFixIt.Models.Worker", b =>
                 {
                     b.Property<int>("WorkerId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<bool>("Avaliable");
+                    b.Property<bool>("Availiable");
 
                     b.Property<string>("FirstName");
 
@@ -222,7 +222,7 @@ namespace MrFixIt.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("MrFixIt.Models.User")
+                    b.HasOne("MrFixIt.Models.ApplicationUser")
                         .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -230,7 +230,7 @@ namespace MrFixIt.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.EntityFrameworkCore.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("MrFixIt.Models.User")
+                    b.HasOne("MrFixIt.Models.ApplicationUser")
                         .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);
@@ -243,7 +243,7 @@ namespace MrFixIt.Migrations
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade);
 
-                    b.HasOne("MrFixIt.Models.User")
+                    b.HasOne("MrFixIt.Models.ApplicationUser")
                         .WithMany("Roles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade);

@@ -2,7 +2,7 @@
 
 namespace MrFixIt.Models
 {
-    public class User : IdentityUser
+    public class ApplicationUser : IdentityUser
     {
 
     }

@@ -68,7 +68,7 @@ namespace MrFixIt.Migrations
                 {
                     WorkerId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Avaliable = table.Column<bool>(nullable: false),
+                    Availiable = table.Column<bool>(nullable: false),
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     UserName = table.Column<string>(nullable: true)
@@ -218,11 +218,6 @@ namespace MrFixIt.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Jobs_WorkerId",
-                table: "Jobs",
-                column: "WorkerId");
-
-            migrationBuilder.CreateIndex(
                 name: "EmailIndex",
                 table: "AspNetUsers",
                 column: "NormalizedEmail");
@@ -232,6 +227,11 @@ namespace MrFixIt.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Jobs_WorkerId",
+                table: "Jobs",
+                column: "WorkerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
