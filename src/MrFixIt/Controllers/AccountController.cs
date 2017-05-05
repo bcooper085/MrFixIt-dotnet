@@ -51,7 +51,7 @@ namespace MrFixIt.Controllers
         {
             return View();
         }
-
+        // Register a new user with Authorize and redirect to index
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
@@ -71,7 +71,7 @@ namespace MrFixIt.Controllers
         {
             return View();
         }
-
+        // User login with redirect to index
         [HttpPost]
         public async Task<IActionResult> Login(LoginViewModel model)
         {

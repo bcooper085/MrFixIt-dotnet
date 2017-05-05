@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
+/*Standard authorize register and login viewModels*/
 namespace MrFixIt.ViewModels
 {
     public class RegisterViewModel

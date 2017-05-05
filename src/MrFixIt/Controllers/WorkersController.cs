@@ -13,7 +13,8 @@ namespace MrFixIt.Controllers
     public class WorkersController : Controller
     {
         private MrFixItContext db = new MrFixItContext();
-        // GET: /<controller>/
+
+        // GET list of jobs assigned to a worker. One to many relationship.
         public IActionResult Index()
         {
             var thisWorker = db.Workers.Include(i =>i.Jobs).FirstOrDefault(i => i.UserName == User.Identity.Name);
@@ -32,7 +33,7 @@ namespace MrFixIt.Controllers
             return View();
         }
 
-
+        // Add a new worker/user account
         [HttpPost]
         public IActionResult Create(Worker worker)
         {

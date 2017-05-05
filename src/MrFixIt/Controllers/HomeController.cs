@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using MrFixIt.Models;
 
-// For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
+// Landing page controller to display Register/Login if user is not logged in or Users list of jobs when logged in
 
 namespace MrFixIt.Controllers
 {

@@ -14,7 +14,7 @@ namespace MrFixIt.Controllers
     {
         private MrFixItContext db = new MrFixItContext();
 
-        // GET: /<controller>/
+        // Displays list of jobs in db, includes jobs assigned to a specific worker, known bug
         public IActionResult Index()
         {
             return View(db.Jobs.Include(i => i.Worker).ToList());
@@ -25,6 +25,7 @@ namespace MrFixIt.Controllers
             return View();
         }
 
+        // Create a job and save to db, known bug
         [HttpPost]
         public IActionResult Create(Job job)
         {
@@ -33,12 +34,14 @@ namespace MrFixIt.Controllers
             return RedirectToAction("Index");
         }
 
+        // Claim action appear to be job details action
         public IActionResult Claim(int id)
         {
             var thisItem = db.Jobs.FirstOrDefault(items => items.JobId == id);
             return View(thisItem);
         }
 
+        // worker can claim job and assign to their user account
         [HttpPost]
         public IActionResult Claim(Job job)
         {
