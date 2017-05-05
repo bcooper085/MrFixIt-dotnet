@@ -14,7 +14,7 @@ namespace MrFixIt.Controllers
     {
         private MrFixItContext db = new MrFixItContext();
 
-        // Displays list of jobs in db, includes jobs assigned to a specific worker, known bug
+        // Displays list of jobs in db, includes jobs assigned to a specific worker, no known bug
         public IActionResult Index()
         {
             return View(db.Jobs.Include(i => i.Worker).ToList());
@@ -25,7 +25,7 @@ namespace MrFixIt.Controllers
             return View();
         }
 
-        // Create a job and save to db, known bug
+        // Create a job and save to db, no known bug
         [HttpPost]
         public IActionResult Create(Job job)
         {
