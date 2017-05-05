@@ -218,6 +218,11 @@ namespace MrFixIt.Migrations
                 column: "UserId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Jobs_WorkerId",
+                table: "Jobs",
+                column: "WorkerId");
+
+            migrationBuilder.CreateIndex(
                 name: "EmailIndex",
                 table: "AspNetUsers",
                 column: "NormalizedEmail");
@@ -227,11 +232,6 @@ namespace MrFixIt.Migrations
                 table: "AspNetUsers",
                 column: "NormalizedUserName",
                 unique: true);
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Jobs_WorkerId",
-                table: "Jobs",
-                column: "WorkerId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
