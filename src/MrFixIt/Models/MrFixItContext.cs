@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MrFixIt.Models
 {
-    public class MrFixItContext : IdentityDbContext<ApplicationUser>
+    public class MrFixItContext : IdentityDbContext<User>
     {
         public MrFixItContext()
         {

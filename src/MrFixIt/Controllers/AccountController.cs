@@ -18,10 +18,10 @@ namespace MrFixIt.Controllers
 
         //Basic User Account Info here...
         private readonly MrFixItContext _db;
-        private readonly UserManager<ApplicationUser> _userManager;
-        private readonly SignInManager<ApplicationUser> _signInManager;
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signInManager;
 
-        public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, MrFixItContext db)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, MrFixItContext db)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -55,7 +55,7 @@ namespace MrFixIt.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            var user = new ApplicationUser { UserName = model.Email };
+            var user = new User { UserName = model.Email };
             IdentityResult result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
