@@ -1,15 +1,13 @@
-﻿
-$(document).ready(function () {
-    $('#claim-job').submit(function (event) {
+﻿$(document).ready(function () {
+    $('#claim-job').submit(function () {
         event.preventDefault();
         $.ajax({
-            url: '/Jobs/ClaimJob/' + jobId,
+            url: 'Jobs/Claim',
             type: 'POST',
-            dataTyle: 'json',
-            data: $(this).serialize(),
+            data: { JobId: $('#JobId').val() },
+            dataType: 'json',
             success: function (result) {
-                var resultMessage = "Job has been claimed";
-                $('#result1').html(resultMessage);
+                $("results").html("<h2>This Job is claimed by" + result.Worker.FirstName + " " + job.Worker.LastName + "</h2>")
             }
         })
     })

@@ -8,7 +8,7 @@ using MrFixIt.Models;
 namespace MrFixIt.Migrations
 {
     [DbContext(typeof(MrFixItContext))]
-    [Migration("20170505220555_Initial")]
+    [Migration("20170505224845_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -200,7 +200,7 @@ namespace MrFixIt.Migrations
                     b.Property<int>("WorkerId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<bool>("Availiable");
+                    b.Property<bool>("Available");
 
                     b.Property<string>("FirstName");
 

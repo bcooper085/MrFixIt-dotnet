@@ -34,20 +34,17 @@ namespace MrFixIt.Controllers
         }
 
         // Claim action appear to be job details action
-        public IActionResult Claim(int id)
-        {
-            var thisItem = db.Jobs.FirstOrDefault(items => items.JobId == id);
-            return View(thisItem);
-        }
+
 
         // worker can claim job and assign to their user account
         [HttpPost]
-        public IActionResult Claim(Job job)
+        public IActionResult Claim(int JobId)
         {
+            Job job = db.Jobs.FirstOrDefault(j => j.JobId == JobId);
             job.Worker = db.Workers.FirstOrDefault(i => i.UserName == User.Identity.Name);
             db.Entry(job).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return Json(job);
         }
     }
 }

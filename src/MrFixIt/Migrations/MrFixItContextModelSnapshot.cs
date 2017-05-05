@@ -199,7 +199,7 @@ namespace MrFixIt.Migrations
                     b.Property<int>("WorkerId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<bool>("Availiable");
+                    b.Property<bool>("Available");
 
                     b.Property<string>("FirstName");
 

@@ -5,35 +5,32 @@
 @*
     View displays all unclaimed jobs and jobs claimed by specific worker, known bug
 *@
-@{
-}
+@model IEnumerable<MrFixIt.Models.Job>
+
 <div class="text-center">
     <h3>Our Current Jobs</h3>
     @Html.ActionLink("Add a new job", "Create")
 </div>
 @foreach (var Job in Model)
-{
-    <ul>
-        <li>@Job.Title</li>
-        <ul>
-            <li>@Job.Description</li>
-        </ul>
+{    
+        <h3>Title: @Job.Title </h3>       
+        <h3>Description: @Job.Description </h3>       
+        <div class=@Job.JobId>
         @if (Job.Worker == null)
         {
-        <li>This job is unclaimed. 
-        @Html.ActionLink("Claim This Job", "Claim", new { @text = @Job.Title, id = Job.JobId })
-            
-            <div id="result1"></div>
-        </li>
+            <h4>This job is unclaimed.</h4>
+
+            <form action="Claim" id="claim-job">
+                <input type="hidden" name="JobId" value="@Job.JobId" id="JobId" />
+                <button type="submit">Claim Job</button>
+            </form>       
         }
         else
         {
-            <li class="btn">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</li>
+            <h3 class="results">This Job is claimed by @Job.Worker.FirstName @Job.Worker.LastName</h3>
 
         }
-    </ul>
-
+        </div>
 
     <hr />
 }
-
