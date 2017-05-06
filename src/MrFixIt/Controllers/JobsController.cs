@@ -48,7 +48,7 @@ namespace MrFixIt.Controllers
         }
 
         [HttpPost]
-        public IActionResult Working(int JobId)
+        public IActionResult Start(int JobId)
         {
             Job job = db.Jobs.FirstOrDefault(j => j.JobId == JobId);
             job.Pending = true;
@@ -58,7 +58,7 @@ namespace MrFixIt.Controllers
         }
 
         [HttpPost]
-        public IActionResult Done(int JobId)
+        public IActionResult Completed(int JobId)
         {
             Job job = db.Jobs.FirstOrDefault(j => j.JobId == JobId);
             job.Completed = true;

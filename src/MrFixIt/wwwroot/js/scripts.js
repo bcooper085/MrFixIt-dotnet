@@ -13,28 +13,28 @@
         })
     })
 
-    $('.done-form').submit(function () {
+    $('#pending-jobs').submit(function () {
         event.preventDefault();
         $.ajax({
-            url: 'Jobs/Done',
+            url: 'Jobs/Start',
             type: 'POST',
             data: { JobId: $('#JobId').val() },
             dataType: 'json',
             success: function (result) {
-                $(".completed").html("<h2>This Job is Done</h2>")
+                $(".completed").html("<h2>This Job is Pending</h2>")
             }
         })
     })
 
-    $('.pending-form').submit(function () {
+    $('#completed-jobs').submit(function () {
         event.preventDefault();
         $.ajax({
-            url: 'Jobs/Working',
+            url: 'Jobs/Completed',
             type: 'POST',
             data: { JobId: $('#JobId').val() },
             dataType: 'json',
             success: function (result) {
-                $(".pending").html("<h2>This Job is Pending</h2>")
+                $(".pending").html("<h2>This Job is Done</h2>")
             }
         })
     })
