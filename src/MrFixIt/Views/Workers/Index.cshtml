@@ -1,7 +1,6 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit http://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
@@ -13,8 +12,23 @@
         <h3>Your Current Jobs:</h3>
         @foreach (var Job in Model.Jobs)
         {
-            <h5>@Job.Title</h5>
+            <h4>@Job.Title</h4>
+            @if(Job.Pending == true)
+            {
+                
 
+
+            }
+            else if(Job.Completed == true)
+            {
+               
+
+            }
+            else
+            {
+
+
+            }
         }
         @if (Model.Available)
         {
